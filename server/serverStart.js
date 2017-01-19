@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var cats = require('./catsRoute');
+var hobbies = require('./hobbiesRoute')
 
 var app = express();
 var port = process.env.PORT || 5000;
@@ -21,5 +22,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/api/', cats);
+app.use('/api/', hobbies);
+
 app.listen(port);
 console.log('start to listening ' + port);

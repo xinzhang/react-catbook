@@ -12,9 +12,11 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 
 import {loadCats} from './actions/catActions';
+import {loadHobbies} from './actions/hobbyActions';
 
 const store = configureStore();
 store.dispatch(loadCats());
+store.dispatch(loadHobbies());
 
 ReactDOM.render(
   <Provider store ={store}>
