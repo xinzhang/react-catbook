@@ -1,5 +1,6 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
+import {browserHistory} from 'react-router';
 
 export default function catReducer(state = initialState.cats, action) {
   switch (action.type) {
@@ -9,6 +10,12 @@ export default function catReducer(state = initialState.cats, action) {
       return [
         ...state.filter(cat => cat.id != action.cat.id),
         Object.assign({}, action.cat)
+      ]
+    case types.CREATE_CAT_SUCCESS:
+        browserHistory.push(`/cats/${action.cat.id}`)
+        return [
+          ...state.filter(cat => cat.id != action.cat.id),
+          Object.assign({}, action.cat)
       ]
     default:
       return state;

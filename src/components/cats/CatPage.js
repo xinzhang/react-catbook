@@ -138,7 +138,7 @@ function mapStateToProps(state, ownProps) {
   if (catId && state.cats.length > 0 && state.hobbies.length > 0) {
     cat = Object.assign({}, state.cats.find(cat => cat.id == catId));
 
-    if (cat.hobby_ids.length > 0) {
+    if (cat.id && cat.hobby_ids.length > 0) {
       checkBoxHobbies = hobbiesForCheckBoxes(stateHobbies, cat);
       catHobbies = collectCatHobbies(stateHobbies, cat);
     } else {

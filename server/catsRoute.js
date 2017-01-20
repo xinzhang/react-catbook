@@ -25,8 +25,13 @@ router.get('/cats', function(req, res, next) {
 });
 
 router.put('/cats/:id', function(req, res, next) {
-    res.json(req);    
+    res.json(req.cat);
   });
-});
+
+
+router.post('/cats', function(req, res, next) {
+    res.json(req.cat);
+  });
+
 
 module.exports = router;

@@ -21,10 +21,24 @@ export function updateCat(cat) {
   }
 }
 
+export function createCat(cat) {
+  return function(dispatch) {
+    return catApi.createCat(cat).then(responseCat => {
+      dispatch(createCatSuccess(responseCat));
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
 export function loadCatsSuccess(cats) {
   return {type: types.LOAD_CATS_SUCCESS, cats}
 }
 
 export function updateCatSuccess(cat) {
   return {type: types.UPDATE_CAT_SUCCESS, cat}
+}
+
+export function createCatSuccess(cat) {
+  return {type: types.CREATE_CAT_SUCCESS, cat}
 }
