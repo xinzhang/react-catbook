@@ -11,6 +11,20 @@ export function loadCats() {
   }
 }
 
+export function updateCat(cat) {
+  return function(dispatch) {
+    return catApi.updateCat(cat).then(responseCat => {
+      dispatch(updateCatSuccess(responseCat));
+    }).catch(error => {
+      throw(error);
+    });
+  }
+}
+
 export function loadCatsSuccess(cats) {
   return {type: types.LOAD_CATS_SUCCESS, cats}
+}
+
+export function updateCatSuccess(cat) {
+  return {type: types.UPDATE_CAT_SUCCESS, cat}
 }
