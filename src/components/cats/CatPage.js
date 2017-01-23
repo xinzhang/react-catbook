@@ -22,6 +22,7 @@ class CatPage extends React.Component {
     this.saveCat = this.saveCat.bind(this);
     this.updateCatState = this.updateCatState.bind(this);
     this.updateCatHobbies = this.updateCatHobbies.bind(this);
+    this.deleteCat = this.deleteCat.bind(this);
   }
 
   //set up state only when props ready
@@ -69,6 +70,10 @@ class CatPage extends React.Component {
       this.props.actions.updateCat(this.state.cat);
   }
 
+  deleteCat(event) {
+    this.props.actions.deleteCat(this.state.cat);
+  }
+
   render() {
     if (this.state.isEditing) {
       return(
@@ -92,7 +97,8 @@ class CatPage extends React.Component {
         <p>weight: {this.props.cat.weight}</p>
         <p>temperament: {this.props.cat.temperament}</p>
         <HobbyList hobbies={this.props.catHobbies} />
-        <button onClick={this.toggleEdit}>edit</button>
+        <button className="btn btn-default" onClick={this.toggleEdit}>edit</button>
+        <button className="btn btn-default" onClick={this.deleteCat}>delete</button>
       </div>
     );
   }

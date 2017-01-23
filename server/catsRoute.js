@@ -33,5 +33,9 @@ router.post('/cats', function(req, res, next) {
     res.json(req.cat);
   });
 
+router.delete('/cats/:id', function(req,res,next){
+  res.json(req.cat);
+})
+
 
 module.exports = router;
